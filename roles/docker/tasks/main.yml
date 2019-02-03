@@ -11,14 +11,19 @@
   with_items:
     - docker
     - docker-py
-    - docker-compose
+
+- name: Install docker compose
+  pip:
+    name: docker-compose
+    state: present
+    version: 1.9.0
 
 - name: add docker repo key
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
     state: present
 
-- name: add docker repo
+- name: Add docker repo
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
     state: present
