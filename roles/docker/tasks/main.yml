@@ -1,7 +1,7 @@
 ---
 - name: fetch docker installation file
   fetch:
-    url: https://get.docker.com
+    src: https://get.docker.com
     dest: /tmp/docker-setup
 
 - name: setup docker
