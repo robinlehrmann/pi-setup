@@ -1,8 +1,13 @@
 ---
+- name: create tmp owncloud
+  file:
+    path: /tmp/owncloud
+    state: directory
+
 - name: fetch docker compose file
   get_url:
     url: https://raw.githubusercontent.com/owncloud-docker/server/master/docker-compose.yml
-    dest: /home/pi/setup-owncloud.yml
+    dest: /tmp/owncloud/docker-compose.yml
 
 - name: setup owncloud
   environment:
@@ -11,6 +16,9 @@
     ADMIN_USERNAME: "{{ owncloud_user }}"
     ADMIN_PASSWORD: "{{ owncloud_password }}"
   docker_service:
-    project_src: /home/pi
-    files: setup-owncloud.yml
-    restarted: yes
+    project_src: /tmp/owncloud
+
+- name: upgrade owncloud
+  command: docker-compose run --rm owncloud owncloud upgrade --noinput
+  args:
+    chdir: /tmp/owncloud
