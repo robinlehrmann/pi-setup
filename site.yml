@@ -15,3 +15,5 @@
   roles:
     - role: owncloud
       become: true
+    - role: pihole
+      become: true

@@ -1,0 +1,13 @@
+---
+- name: Install docker container
+  environment:
+    TZ: Europe/Berlin
+    WEBPASSWORD: "{{ pihole_password }}"
+    DNS1: "{{ pihole_dns1 }}"
+    DNS2: "{{ pihole_dns1 }}"
+  docker_container:
+    image: pihole/pihole
+    auto_remove: yes
+    cleanup: yes
+    pull: yes
+    restart: yes
