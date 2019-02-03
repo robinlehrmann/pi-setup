@@ -6,6 +6,7 @@
     DNS1: "{{ pihole_dns1 }}"
     DNS2: "{{ pihole_dns1 }}"
   docker_container:
+    name: pihole
     image: pihole/pihole
     auto_remove: yes
     cleanup: yes
