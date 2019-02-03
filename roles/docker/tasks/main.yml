@@ -4,7 +4,7 @@
     name: "python-pip"
     state: latest
 
-- name: Install docker python package
+- name: Install pip packages
   pip:
     name: "{{ item }}"
   with_items:
