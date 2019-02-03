@@ -16,7 +16,6 @@
     state: forcereinstall
   with_items:
     - docker
-    - docker-py
 
 - name: Add docker repo key
   apt_key:
