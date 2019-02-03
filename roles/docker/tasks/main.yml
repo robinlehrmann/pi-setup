@@ -1,7 +1,7 @@
 ---
 - name: fetch docker installation file
-  fetch:
-    src: https://get.docker.com
+  get_url:
+    url: https://get.docker.com
     dest: /home/pi/docker-setup.sh
 
 - name: setup docker

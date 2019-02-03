@@ -1,7 +1,7 @@
 ---
 - name: fetch docker compose file
-  fetch:
-    src: https://raw.githubusercontent.com/owncloud-docker/server/master/docker-compose.yml
+  get_url:
+    url: https://raw.githubusercontent.com/owncloud-docker/server/master/docker-compose.yml
     dest: /home/pi/setup-owncloud.yml
 
 - name: setup owncloud
