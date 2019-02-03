@@ -1,0 +1,4 @@
+---
+owncloud_host: cloud.developer.nrw
+owncloud_user: admin
+owncloud_password: admin

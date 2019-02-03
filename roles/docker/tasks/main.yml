@@ -1,0 +1,15 @@
+---
+- name: fetch docker installation file
+  fetch:
+    url: https://get.docker.com
+    dest: /tmp/docker-setup
+
+- name: setup docker
+  shell: sh /tmp/docker-setup
+
+- name: ensure docker is enabled
+  systemd:
+    name: docker
+    enabled: true
+  notify:
+    - restart docker
