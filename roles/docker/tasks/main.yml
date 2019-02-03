@@ -4,6 +4,12 @@
     name: "python-pip"
     state: latest
 
+- name: Install docker compose
+  pip:
+    name: docker-compose
+    state: present
+    version: 1.10.1
+
 - name: Install pip packages
   pip:
     name: "{{ item }}"
@@ -12,13 +18,7 @@
     - docker
     - docker-py
 
-- name: Install docker compose
-  pip:
-    name: docker-compose
-    state: present
-    version: 1.10.1
-
-- name: add docker repo key
+- name: Add docker repo key
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
     state: present
