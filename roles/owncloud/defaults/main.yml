@@ -2,3 +2,4 @@
 owncloud_host: cloud.developer.nrw
 owncloud_user: admin
 owncloud_password: admin
+owncloud_port: 8000

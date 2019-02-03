@@ -13,6 +13,7 @@
   environment:
     OWNCLOUD_VERSION: latest
     OWNCLOUD_DOMAIN: "{{ owncloud_host }}"
+    HTTP_PORT: "{{ owncloud_port }}"
     ADMIN_USERNAME: "{{ owncloud_user }}"
     ADMIN_PASSWORD: "{{ owncloud_password }}"
   docker_service:
@@ -22,6 +23,7 @@
   environment:
     OWNCLOUD_VERSION: latest
     OWNCLOUD_DOMAIN: "{{ owncloud_host }}"
+    HTTP_PORT: "{{ owncloud_port }}"
     ADMIN_USERNAME: "{{ owncloud_user }}"
     ADMIN_PASSWORD: "{{ owncloud_password }}"
   command: docker-compose run --rm owncloud owncloud upgrade --noinput
