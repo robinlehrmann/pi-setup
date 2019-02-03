@@ -5,6 +5,12 @@
 
 - hosts: pi
   pre_tasks:
+    - copy:
+        src: /home/pi/setup/.git/refs/heads/master
+        dest: /tmp/last-head
+    - cron:
+        name: "update pi-setup"
+        job: "[[ check.sh ]] && ./update.sh"
     - apt:
         name: apt-transport-https
         state: latest
@@ -13,8 +19,8 @@
         update_cache: true
       become: true
   roles:
-#    - role: owncloud
-#      become: true
+    - role: owncloud
+      become: true
     - role: pihole
       become: true
     - role: firefly
