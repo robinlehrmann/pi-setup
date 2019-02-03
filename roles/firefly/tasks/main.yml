@@ -1,0 +1,43 @@
+---
+- name: Install docker container
+  environment:
+
+  docker_container:
+    image: jc5x/firefly-iii:latest
+    auto_remove: yes
+    cleanup: yes
+    pull: yes
+    restart: yes
+
+- name: create tmp firefly
+  file:
+    path: /tmp/firefly
+    state: directory
+
+- name: fetch docker compose file
+  get_url:
+    url: https://github.com/firefly-iii/firefly-iii/blob/master/docker-compose.yml
+    dest: /tmp/firefly/docker-compose.yml
+
+- name: setup firefly
+  environment:
+    FF_APP_ENV: "{{ firefly_app_env }}"
+    FF_APP_KEY: "{{ firefly_app_key }}"
+    FF_DB_HOST: "{{ firefly_db_host }}"
+    FF_DB_NAME: "{{ firefly_db_name }}"
+    FF_DB_USER: "{{ firefly_db_user }}"
+    FF_DB_PASSWORD: "{{ firefly_db_password }}"
+  docker_service:
+    project_src: /tmp/owncloud
+
+- name: upgrade firefly
+  environment:
+    FF_APP_ENV: "{{ firefly_app_env }}"
+    FF_APP_KEY: "{{ firefly_app_key }}"
+    FF_DB_HOST: "{{ firefly_db_host }}"
+    FF_DB_NAME: "{{ firefly_db_name }}"
+    FF_DB_USER: "{{ firefly_db_user }}"
+    FF_DB_PASSWORD: "{{ firefly_db_password }}"
+  command: docker-compose run --rm owncloud owncloud upgrade --noinput
+  args:
+    chdir: /tmp/firefly
