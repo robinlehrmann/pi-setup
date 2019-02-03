@@ -7,11 +7,12 @@
 - name: Install docker compose
   pip:
     name: docker-compose==1.10.1
+    state: forcereinstall
 
 - name: Install pip packages
   pip:
     name: "{{ item }}"
-    state: present
+    state: forcereinstall
   with_items:
     - docker
     - docker-py
