@@ -6,7 +6,7 @@
 
 - name: Install docker compose
   pip:
-    name: docker-compose==1.10.1
+    name: docker-compose
     version: 1.10.1
     state: forcereinstall
 
