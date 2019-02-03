@@ -16,7 +16,7 @@
   pip:
     name: docker-compose
     state: present
-    version: 1.9.0
+    version: 18.06
 
 - name: add docker repo key
   apt_key:
