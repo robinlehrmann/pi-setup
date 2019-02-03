@@ -6,7 +6,11 @@
 
 - name: Install docker python package
   pip:
-    name: docker-py
+    name: "{{ item }}"
+  with_items:
+    - docker
+    - docker-py
+    - docker-compose
 
 - name: add docker repo key
   apt_key:
