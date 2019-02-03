@@ -1,14 +1,4 @@
 ---
-- name: Install docker container
-  environment:
-
-  docker_container:
-    image: jc5x/firefly-iii:latest
-    auto_remove: yes
-    cleanup: yes
-    pull: yes
-    restart: yes
-
 - name: create tmp firefly
   file:
     path: /tmp/firefly

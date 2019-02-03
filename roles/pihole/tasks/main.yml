@@ -7,6 +7,7 @@
     DNS2: "{{ pihole_dns1 }}"
   docker_container:
     name: pihole
+    recreate: yes
     image: pihole/pihole
     auto_remove: yes
     cleanup: yes
