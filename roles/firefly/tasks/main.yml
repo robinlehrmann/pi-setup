@@ -28,7 +28,7 @@
     FF_DB_USER: "{{ firefly_db_user }}"
     FF_DB_PASSWORD: "{{ firefly_db_password }}"
   docker_service:
-    project_src: /tmp/owncloud
+    project_src: /tmp/firefly
 
 - name: upgrade firefly
   environment:
