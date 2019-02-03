@@ -1,15 +1,25 @@
 ---
-- name: fetch docker installation file
-  get_url:
-    url: https://get.docker.com
-    dest: /home/pi/docker-setup.sh
+- name: Install pip package
+  apt:
+    name: "python-pip"
+    state: latest
 
-- name: setup docker
-  shell: sh /home/pi/docker-setup.sh
-
-- name: ensure docker is enabled
-  systemd:
+- name: Install docker python package
+  pip:
     name: docker
-    enabled: true
-  notify:
-    - restart docker
+
+- name: add docker repo key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    state: present
+
+- name: add docker repo
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+    state: present
+
+- name: Install docker package
+  apt:
+    name: "docker-ce"
+    state: latest
+  update_cache: true
