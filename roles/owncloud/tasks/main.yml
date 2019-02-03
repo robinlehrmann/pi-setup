@@ -2,7 +2,7 @@
 - name: fetch docker compose file
   fetch:
     src: https://raw.githubusercontent.com/owncloud-docker/server/master/docker-compose.yml
-    dest: /tmp/setup-owncloud.yml
+    dest: /home/pi/setup-owncloud.yml
 
 - name: setup owncloud
   environment:
@@ -11,6 +11,6 @@
     ADMIN_USERNAME: "{{ owncloud_user }}"
     ADMIN_PASSWORD: "{{ owncloud_password }}"
   docker_service:
-    project_src: /tmp
+    project_src: /home/pi
     files: setup-owncloud.yml
     restarted: yes

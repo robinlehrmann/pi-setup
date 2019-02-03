@@ -2,10 +2,10 @@
 - name: fetch docker installation file
   fetch:
     src: https://get.docker.com
-    dest: /tmp/docker-setup
+    dest: /home/pi/docker-setup.sh
 
 - name: setup docker
-  shell: sh /tmp/docker-setup
+  shell: sh /home/pi/docker-setup.sh
 
 - name: ensure docker is enabled
   systemd:
