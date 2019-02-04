@@ -19,8 +19,23 @@
         update_cache: true
       become: true
   roles:
-#    - role: owncloud
-#      become: true
+    - role: owncloud
+      become: true
+    - role: pihole
+      become: true
+    - role: firefly
+      become: true
+
+- hosts: devbox
+  pre_tasks:
+    - apt:
+        name: apt-transport-https
+        state: latest
+        update_cache: true
+      become: true
+  roles:
+    - role: owncloud
+      become: true
     - role: pihole
       become: true
     - role: firefly

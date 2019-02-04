@@ -6,7 +6,7 @@
 
 - name: fetch docker compose file
   get_url:
-    url: https://github.com/firefly-iii/firefly-iii/blob/master/docker-compose.yml
+    url: https://raw.githubusercontent.com/firefly-iii/firefly-iii/master/docker-compose.yml
     dest: /tmp/firefly/docker-compose.yml
 
 - name: setup firefly
@@ -28,6 +28,6 @@
     FF_DB_NAME: "{{ firefly_db_name }}"
     FF_DB_USER: "{{ firefly_db_user }}"
     FF_DB_PASSWORD: "{{ firefly_db_password }}"
-  command: docker-compose run --rm owncloud owncloud upgrade --noinput
+  command: docker-compose run --rm firefly firefly upgrade --noinput
   args:
     chdir: /tmp/firefly
