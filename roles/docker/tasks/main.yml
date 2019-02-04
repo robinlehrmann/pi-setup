@@ -7,7 +7,7 @@
 - name: Install docker compose
   pip:
     name: docker-compose
-    version: 1.10.1
+    #version: 1.10.1
     state: forcereinstall
 
 - name: Install pip packages
