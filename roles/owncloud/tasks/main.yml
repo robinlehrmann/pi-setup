@@ -6,7 +6,7 @@
 
 - name: fetch docker compose file
   get_url:
-    url: https://raw.githubusercontent.com/owncloud-docker/server/master/docker-compose.yml
+    url: https://ssi.le-piolot.fr/share/docker-compose/owncloud/docker-compose.yml
     dest: /tmp/owncloud/docker-compose.yml
 
 - name: setup owncloud
