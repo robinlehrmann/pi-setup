@@ -26,6 +26,12 @@
     HTTP_PORT: "{{ owncloud_port }}"
     ADMIN_USERNAME: "{{ owncloud_user }}"
     ADMIN_PASSWORD: "{{ owncloud_password }}"
-  command: docker-compose run --rm owncloud owncloud upgrade --noinput
-  args:
-    chdir: /tmp/owncloud
+  docker_service:
+    project_src: /tmp/owncloud
+    pull: yes
+    remove_orphans: yes
+    restarted: yes
+  register: owncloud_output
+
+- debug:
+    var: owncloud_output
