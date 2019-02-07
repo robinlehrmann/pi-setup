@@ -20,8 +20,8 @@
   docker_service:
     project_src: /tmp/firefly
     pull: yes
-      remove_orphans: yes
-      restarted: yes
+    remove_orphans: yes
+    restarted: yes
     register: firefly_output
 
 - debug:
