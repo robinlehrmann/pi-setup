@@ -1,2 +1,5 @@
 ---
-mysql_password: password
+mysql_root_password: password
+mysql_database: owncloud
+mysql_user: owncloud
+mysql_password: owncloud
