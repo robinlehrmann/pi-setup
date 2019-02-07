@@ -19,15 +19,10 @@
     FF_DB_PASSWORD: "{{ firefly_db_password }}"
   docker_service:
     project_src: /tmp/firefly
+    pull: yes
+      remove_orphans: yes
+      restarted: yes
+    register: firefly_output
 
-- name: upgrade firefly
-  environment:
-    FF_APP_ENV: "{{ firefly_app_env }}"
-    FF_APP_KEY: "{{ firefly_app_key }}"
-    FF_DB_HOST: "{{ firefly_db_host }}"
-    FF_DB_NAME: "{{ firefly_db_name }}"
-    FF_DB_USER: "{{ firefly_db_user }}"
-    FF_DB_PASSWORD: "{{ firefly_db_password }}"
-  command: docker-compose run --rm firefly firefly upgrade --noinput
-  args:
-    chdir: /tmp/firefly
+- debug:
+    var: firefly_output

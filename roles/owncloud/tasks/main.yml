@@ -16,16 +16,9 @@
     HTTP_PORT: "{{ owncloud_port }}"
     ADMIN_USERNAME: "{{ owncloud_user }}"
     ADMIN_PASSWORD: "{{ owncloud_password }}"
-  docker_service:
-    project_src: /tmp/owncloud
-
-- name: upgrade owncloud
-  environment:
-    OWNCLOUD_VERSION: latest
-    OWNCLOUD_DOMAIN: "{{ owncloud_host }}"
-    HTTP_PORT: "{{ owncloud_port }}"
-    ADMIN_USERNAME: "{{ owncloud_user }}"
-    ADMIN_PASSWORD: "{{ owncloud_password }}"
+    MYSQL_ROOT_PASSWORD: "{{ owncloud_database_password }}"
+    OWNCLOUD_DB_PASSWORD: "{{ owncloud_database_password }}"
+    OWNCLOUD_DB_NAME: "mariadb-01:3306"
   docker_service:
     project_src: /tmp/owncloud
     pull: yes
