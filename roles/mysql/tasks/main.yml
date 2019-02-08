@@ -2,7 +2,11 @@
 - name: Install docker container
   docker_container:
     name: mysql
-    image: mysql:8.0
-    restart: true
+    image: mysql:latest
+    recreate: yes
+    auto_remove: yes
+    cleanup: yes
+    pull: yes
+    restart: yes
     env:
-      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      MYSQL_ROOT_PASSWORD: "{{ mysql_password }}"
