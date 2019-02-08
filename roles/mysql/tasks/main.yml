@@ -1,8 +1,8 @@
 ---
 - name: Install docker container
   docker_container:
-    name: mysql
-    image: mysql/mysql-server
+    name: mariadb
+    image: mariadb
     recreate: yes
     cleanup: yes
     pull: yes
