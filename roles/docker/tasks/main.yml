@@ -28,6 +28,6 @@
 
 - name: Install docker package
   apt:
-    name: "docker-ce"
+    name: docker
     state: latest
     update_cache: true
