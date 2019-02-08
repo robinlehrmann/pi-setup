@@ -2,7 +2,7 @@
 - name: Install docker container
   docker_container:
     name: mysql
-    image: mysql:latest
+    image: mysql/mysql-server
     recreate: yes
     cleanup: yes
     pull: yes
