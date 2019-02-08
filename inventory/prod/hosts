@@ -3,4 +3,3 @@ living-room
 
 [pi:vars]
 ansible_connection=local
-
