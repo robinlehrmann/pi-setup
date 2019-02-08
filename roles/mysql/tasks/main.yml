@@ -4,7 +4,6 @@
     name: mysql
     image: mysql:latest
     recreate: yes
-    auto_remove: yes
     cleanup: yes
     pull: yes
     restart: yes

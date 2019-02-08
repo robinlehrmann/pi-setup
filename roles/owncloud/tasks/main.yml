@@ -4,7 +4,6 @@
     name: owncloud
     recreate: yes
     image: owncloud/server
-    auto_remove: yes
     cleanup: yes
     pull: yes
     restart: yes

@@ -4,7 +4,6 @@
     name: pihole
     recreate: yes
     image: pihole/pihole
-    auto_remove: yes
     cleanup: yes
     pull: yes
     restart: yes
