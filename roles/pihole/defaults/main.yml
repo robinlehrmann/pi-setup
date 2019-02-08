@@ -1,4 +1,4 @@
 ---
-pihole_password: admin
+pihole_password: please_change_me
 pihole_dns1: 4.4.4.4
 pihole_dns2: 8.8.8.8

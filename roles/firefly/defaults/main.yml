@@ -1,7 +1,7 @@
 ---
-app_env: local
-app_key: jeogjigjhre9gjew90jqwrfiß
-db_host: finance.robinlehrmann.de
-db_name:
-db_user:
-db_password:
+firefly_app_env: local
+firefly_app_key: please_change_me
+firefly_db_host: finance.robinlehrmann.de
+firefly_db_name: firefly
+firefly_db_user: "{{ mysql_user }}"
+firefly_db_password: "{{ mysql_password }}"

@@ -1,6 +1,6 @@
 ---
 owncloud_host: cloud.developer.nrw
 owncloud_user: admin
-owncloud_password: admin
+owncloud_password: please_change_me
 owncloud_port: 8000
-owncloud_database_password: password
+owncloud_database_password: "{{ mysql_password }}"

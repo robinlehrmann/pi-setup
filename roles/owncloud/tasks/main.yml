@@ -14,5 +14,6 @@
       HTTP_PORT: "{{ owncloud_port }}"
       ADMIN_USERNAME: "{{ owncloud_user }}"
       ADMIN_PASSWORD: "{{ owncloud_password }}"
+      OWNCLOUD_DB_USER: "{{ owncloud_database_user }}"
       OWNCLOUD_DB_PASSWORD: "{{ owncloud_database_password }}"
       OWNCLOUD_DB_NAME: "mysql-01:3306"
