@@ -1,0 +1,19 @@
+---
+- name: create tmp snapcast
+  file:
+    path: /tmp/snapcast
+    state: directory
+
+- name: ensure Dockerfile exists
+  copy:
+    src: Dockerfile
+    dest: /tmp/snapcast/Dockerfile
+
+- name: Install docker container
+  docker_container:
+    name: snapcast
+    recreate: yes
+    cleanup: yes
+    restart: yes
+    state: build
+    path: /tmp/snapcast
