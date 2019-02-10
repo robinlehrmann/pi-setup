@@ -1,5 +1,6 @@
 [pi]
 living-room
+kitchen
 
 [pi:vars]
 ansible_connection=local
